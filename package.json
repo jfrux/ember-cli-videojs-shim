@@ -11,12 +11,12 @@
     "player"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Joshua F. Rountree <joshua.rountree@scripps.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/joshuairl/ember-cli-videojs-shim.git",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
