@@ -1,4 +1,6 @@
 {
   "name": "ember-cli-videojs-shim",
-  "dependencies": {}
+  "dependencies": {
+    "video.js": "~5.12"
+  }
 }

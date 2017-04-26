@@ -1,9 +1,14 @@
 {
   "name": "ember-cli-videojs-shim",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "ES6 Module for VideoJS and Addons",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "videojs",
+    "video.js",
+    "video",
+    "html5",
+    "player"
   ],
   "license": "MIT",
   "author": "",
