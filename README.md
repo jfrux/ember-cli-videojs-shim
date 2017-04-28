@@ -1,27 +1,34 @@
 # ember-cli-videojs-shim
+[![Build Status](https://travis-ci.org/joshuairl/ember-cli-videojs-shim.svg?branch=master)](https://travis-ci.org/joshuairl/ember-cli-videojs-shim)
+[![npm Version][npm-badge]][npm]
+[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-videojs-shim.svg)](http://emberobserver.com/addons/ember-cli-videojs-shim)
+[![Ember badge][ember-badge]][embadge]
 
-This README outlines the details of collaborating on this Ember addon.
+ES6 accessible module for videojs within your Ember applications.
 
-## Installation
+## Usage
 
-* `git clone <repository-url>` this repository
-* `cd ember-cli-videojs-shim`
-* `npm install`
-* `bower install`
+* `ember install ember-cli-videojs-shim`
 
-## Running
+```js
+import videojs from 'videojs';
+```
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+## Features & Todos
 
-## Running Tests
+- [x] ES6 accessible module for videojs
+- [ ] FastBoot support
+- [ ] Plugin support
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+## Upgrading
 
-## Building
+Be sure to rerun the default blueprint with `ember g ember-cli-videojs-shim` if upgrading by bumping the version number in package.json.
 
-* `ember build`
+## License
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+ember-cli-videojs-shim shims is [MIT Licensed](https://github.com/joshuairl/ember-cli-videojs-shim/blob/master/LICENSE.md).
+
+[embadge]: http://embadge.io/
+[ember-badge]: http://embadge.io/v1/badge.svg?start=1.0.0
+[npm]: https://www.npmjs.org/package/ember-cli-moment-shim
+[npm-badge]: https://img.shields.io/npm/v/ember-cli-moment-shim.svg?style=flat-square
