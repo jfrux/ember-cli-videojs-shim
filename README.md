@@ -8,8 +8,8 @@ ES6 accessible module for videojs within your Ember applications.
 
 ## Usage
 
-```shell
-$ ember install ember-cli-videojs-shim
+```bash
+ember install ember-cli-videojs-shim
 ```
 
 ```js
