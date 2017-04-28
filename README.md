@@ -30,5 +30,5 @@ ember-cli-videojs-shim shims is [MIT Licensed](https://github.com/joshuairl/embe
 
 [embadge]: http://embadge.io/
 [ember-badge]: http://embadge.io/v1/badge.svg?start=1.0.0
-[npm]: https://www.npmjs.org/package/ember-cli-moment-shim
-[npm-badge]: https://img.shields.io/npm/v/ember-cli-moment-shim.svg?style=flat-square
+[npm]: https://www.npmjs.org/package/ember-cli-videojs-shim
+[npm-badge]: https://img.shields.io/npm/v/ember-cli-videojs-shim.svg?style=flat-square
