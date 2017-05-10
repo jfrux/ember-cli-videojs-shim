@@ -6,6 +6,6 @@ module.exports = {
     // ember generate <entityName> <blueprint>
   },
   afterInstall: function(options) {
-    return this.addBowerPackageToProject('video.js', '~5.12');
+    return this.addBowerPackageToProject('video.js', 'https://github.com/videojs/video.js/releases/download/v6.0.1/video-js-6.0.1.zip');
   }
 };
