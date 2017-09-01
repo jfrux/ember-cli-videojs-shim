@@ -8,17 +8,11 @@ const MergeTrees = require('broccoli-merge-trees');
 module.exports = {
   name: 'videojs',
 
-  blueprintsPath: function() {
-    return path.join(__dirname, 'blueprints');
-  },
-
   included: function(app) {
     this._super.included.apply(this, arguments);
 
     if (!process.env.EMBER_CLI_FASTBOOT) {
       let options = app.options.videojs || {};
-      console.log(options);
-
 
       app.import({
         development: path.join('vendor/video-js.css'),
@@ -56,10 +50,8 @@ module.exports = {
       trees.push(vendorTree);
     }
 
-    let modulePath = path.join(path.dirname(require.resolve('video.js')));
-
     trees.push(
-      new Funnel(modulePath)
+      new Funnel(path.join(path.dirname(require.resolve('video.js'))))
     );
 
     return new MergeTrees(trees);
