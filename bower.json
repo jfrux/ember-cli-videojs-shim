@@ -1,6 +1,0 @@
-{
-  "name": "ember-cli-videojs-shim",
-  "dependencies": {
-    "video.js": "https://github.com/videojs/video.js/releases/download/v6.0.1/video-js-6.0.1.zip"
-  }
-}
