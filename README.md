@@ -22,10 +22,6 @@ import videojs from 'videojs';
 - [ ] FastBoot support
 - [ ] Plugin support
 
-## Upgrading
-
-Be sure to rerun the default blueprint with `ember g ember-cli-videojs-shim` if upgrading by bumping the version number in package.json.
-
 ## License
 
 ember-cli-videojs-shim shims is [MIT Licensed](https://github.com/joshuairl/ember-cli-videojs-shim/blob/master/LICENSE.md).

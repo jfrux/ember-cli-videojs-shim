@@ -1,7 +1,9 @@
 /* jshint node: true */
 'use strict';
 
-var path = require('path');
+const path = require('path');
+const Funnel = require('broccoli-funnel');
+const MergeTrees = require('broccoli-merge-trees');
 
 module.exports = {
   name: 'videojs',
@@ -11,18 +13,22 @@ module.exports = {
   },
 
   included: function(app) {
+    this._super.included.apply(this, arguments);
+
     if (!process.env.EMBER_CLI_FASTBOOT) {
-      var options = app.options.videojs || {};
+      let options = app.options.videojs || {};
+      console.log(options);
+
 
       app.import({
-        development: path.join(app.bowerDirectory, 'video.js/video-js.css'),
-        production:  path.join(app.bowerDirectory, 'video.js/video-js.min.css')
+        development: path.join('vendor/video-js.css'),
+        production:  path.join('vendor/video-js.min.css')
       });
 
-      app.import(path.join(app.bowerDirectory, 'video.js/font/VideoJS.eot'), { destDir: 'assets/font' });
-      app.import(path.join(app.bowerDirectory, 'video.js/font/VideoJS.svg'), { destDir: 'assets/font' });
-      app.import(path.join(app.bowerDirectory, 'video.js/font/VideoJS.ttf'), { destDir: 'assets/font' });
-      app.import(path.join(app.bowerDirectory, 'video.js/font/VideoJS.woff'), { destDir: 'assets/font' });
+      app.import(path.join('vendor/font/VideoJS.eot'), { destDir: 'assets/font' });
+      app.import(path.join('vendor/font/VideoJS.svg'), { destDir: 'assets/font' });
+      app.import(path.join('vendor/font/VideoJS.ttf'), { destDir: 'assets/font' });
+      app.import(path.join('vendor/font/VideoJS.woff'), { destDir: 'assets/font' });
 
       app.import('vendor/ember-cli-videojs-shim/shims.js', {
         exports: {
@@ -31,15 +37,31 @@ module.exports = {
       });
 
       app.import({
-        development: path.join(app.bowerDirectory, 'video.js/video.js'),
-        production:  path.join(app.bowerDirectory, 'video.js/video.min.js')
+        development: path.join('vendor/video.js'),
+        production:  path.join('vendor/video.min.js')
       });
 
       (options.languages || []).forEach(function(language) {
-        app.import(path.join(app.bowerDirectory, 'video.js/lang/' + language + '.js'));
+        app.import(path.join('vendor/lang/' + language + '.js'));
       });
 
-      app.import(path.join(app.bowerDirectory, 'video.js/video-js.swf'), { destDir: 'assets' });
+      app.import(path.join('vendor/video-js.swf'), { destDir: 'assets' });
     }
-  }
+  },
+
+  treeForVendor(vendorTree) {
+    let trees = [];
+
+    if (vendorTree) {
+      trees.push(vendorTree);
+    }
+
+    let modulePath = path.join(path.dirname(require.resolve('video.js')));
+
+    trees.push(
+      new Funnel(modulePath)
+    );
+
+    return new MergeTrees(trees);
+  },
 };
