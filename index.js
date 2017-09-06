@@ -4,6 +4,7 @@
 const path = require('path');
 const Funnel = require('broccoli-funnel');
 const MergeTrees = require('broccoli-merge-trees');
+const map = require('broccoli-stew').map;
 
 module.exports = {
   name: 'videojs',
@@ -11,7 +12,6 @@ module.exports = {
   included: function(app) {
     this._super.included.apply(this, arguments);
 
-    if (!process.env.EMBER_CLI_FASTBOOT) {
       let options = app.options.videojs || {};
 
       app.import({
@@ -40,7 +40,6 @@ module.exports = {
       });
 
       app.import(path.join('vendor/video-js.swf'), { destDir: 'assets' });
-    }
   },
 
   treeForVendor(vendorTree) {
@@ -50,9 +49,9 @@ module.exports = {
       trees.push(vendorTree);
     }
 
-    trees.push(
-      new Funnel(path.join(path.dirname(require.resolve('video.js'))))
-    );
+    let videojsLib = new Funnel(path.join(path.dirname(require.resolve('video.js'))));
+    videojsLib = map(videojsLib, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
+    trees.push(videojsLib);
 
     return new MergeTrees(trees);
   },
