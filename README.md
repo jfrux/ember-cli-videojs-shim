@@ -16,17 +16,26 @@ ember install ember-cli-videojs-shim
 import videojs from 'videojs';
 ```
 
-## Features & Todos
+## Settings
+Video.js ships with a number of supported languages. To import languages add:
 
-- [x] ES6 accessible module for videojs
-- [ ] FastBoot support
-- [ ] Plugin support
+```javascript
+...
+    'videojs': {
+      'languages': [
+        'ar'
+      ],
+    }
+...
+```
+
+To your ember-cli-build.js file.
 
 ## License
 
 ember-cli-videojs-shim shims is [MIT Licensed](https://github.com/joshuairl/ember-cli-videojs-shim/blob/master/LICENSE.md).
 
 [embadge]: http://embadge.io/
-[ember-badge]: http://embadge.io/v1/badge.svg?start=1.0.0
+[ember-badge]: http://embadge.io/v1/badge.svg?start=2.4.0
 [npm]: https://www.npmjs.org/package/ember-cli-videojs-shim
 [npm-badge]: https://img.shields.io/npm/v/ember-cli-videojs-shim.svg?style=flat-square
