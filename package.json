@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-videojs-shim",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "ES6 Module for VideoJS and Addons",
   "keywords": [
     "ember-addon",
