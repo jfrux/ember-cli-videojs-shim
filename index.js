@@ -49,9 +49,21 @@ module.exports = {
       trees.push(vendorTree);
     }
 
-    let videojsLib = new Funnel(path.join(path.dirname(require.resolve('video.js'))));
+    let src = path.join(path.dirname(require.resolve('video.js')));
+
+    let videojsLib = new Funnel(src, {
+
+      include: ['lang/*', '*.js']
+    });
+
     videojsLib = map(videojsLib, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
     trees.push(videojsLib);
+
+    let videojsAssets = new Funnel(src, {
+      exclude: ['lang/*', '*.js', '*.zip', 'examples', 'alt']
+    });
+
+    trees.push(videojsAssets);
 
     return new MergeTrees(trees);
   },
